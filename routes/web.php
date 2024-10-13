@@ -3,6 +3,7 @@
 use App\Http\Controllers\aplicacion;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\App;
+use App\Http\Controllers\dashboard; 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,3 +20,4 @@ Route::post('/autenticar', [App::class, 'loguear'])->name('autenticar');
 Route::get("/registrar", [App::class, "register"])->name("crear");
 Route::post("/crearUsuario", [App::class, "crear_usuario"])->name("anadir");
 Route::get('/fecha', [aplicacion::class, 'fechas'])->name('agregar_fechas')->middleware('autenticado');    
+Route::get('/home', [dashboard::class, 'index'])->name('Inicio_calendario');

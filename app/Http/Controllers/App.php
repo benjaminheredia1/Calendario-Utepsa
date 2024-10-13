@@ -22,7 +22,7 @@ class App extends Controller
         ]);
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return 'logueado';
+            return redirect()->intended('dashboard'); // Redirige a la página deseada tras login exitoso
             
         }
         return redirect(route("login"))->withSuccess('Los datos introducidos no son correctos');
@@ -36,13 +36,13 @@ class App extends Controller
         
     }
     public function crear_usuario(Request $request) {
-        if (!$request["password"] == $request["password2"]) {
+        if (($request["password"] != $request["password2"])) {
             return redirect(route("crear"))->withSuccess('Las contraseñas deben ser iguales');
         }
         
        $request->validate([
         "name" => "required|string",
-        "email" => "required|email",
+        "email" => "required|email|unique:users, email",
         "password" => "required|min:4|max:14"
        ]);
        $credenciales = $request->only("email", "password", "name");
