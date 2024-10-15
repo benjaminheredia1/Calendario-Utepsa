@@ -13,6 +13,13 @@ function Crear_Cargar_Calendarios(meses, ano) {
                 center: 'title',
                 right: ''
             },
+            dateClick: function(info) {
+                console.log(info);
+                let dateStr = info['dateStr']; // Fecha en formato 'YYYY-MM-DD'
+                let objeto = document.querySelector(`[data-date='${dateStr}']`);
+                objeto.style.background = 'blue';
+
+            },
             initialDate: new Date(ano, i), // Usa 'i' como el mes, y 'ano' como el año
         });
 
