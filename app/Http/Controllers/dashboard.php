@@ -13,4 +13,10 @@ class dashboard extends Controller
     }
     return redirect(route('login'));
    }
+   public function calendario() {
+    if (Auth::check()) {
+        return view('App/calendario');
+    }
+    return redirect(route("login"));
+   }
 }

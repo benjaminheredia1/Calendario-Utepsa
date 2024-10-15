@@ -10,7 +10,7 @@ class App extends Controller
 {
     public function login() {
         if (Auth::check()) {    
-            return 'logueados';
+            return redirect(route('Inicio_calendario'));
     }
     return view('App.login');
 }
@@ -22,7 +22,7 @@ class App extends Controller
         ]);
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard'); // Redirige a la página deseada tras login exitoso
+            return redirect()->intended(route('Inicio_calendario')); // Redirige a la página deseada tras login exitoso
             
         }
         return redirect(route("login"))->withSuccess('Los datos introducidos no son correctos');
@@ -30,7 +30,7 @@ class App extends Controller
 	}
     public function register() {
         if (Auth::check()) {
-            return "logueado";
+            return redirect(route('Inicio_calendario'));
         }
         return view("App.register");
         

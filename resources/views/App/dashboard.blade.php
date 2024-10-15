@@ -11,39 +11,40 @@
 </head>
 
 <body>
-    <header>
-        <nav>
-            <h1>Calendario Universitario</h1>
-            <ul>
-                <li><a href="#agregar">Agregar Fecha</a></li>
-                <li><a href="#calendario">Ver Calendario</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="contenedor-maestro">
+        <header>
+            <nav>
+                <h1>Calendario Universitario</h1>
+                <ul>
+                    <li><a href="#agregar">Agregar Fecha</a></li>
+                    <li><a href="#calendario">Ver Calendario</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <main>
-        <!-- Sección de agregar fecha -->
-        <section id="agregar">
-            <h2>Agregar Fecha</h2>
-            <form id="form-fecha">
-                <label for="titulo">Título del evento:</label>
-                <input type="text" id="titulo" placeholder="Ej. Examen Final" required>
+        <main>
+            <!-- Sección de agregar fecha -->
+            <section id="agregar">
+                <h2 class="titulo-agregar">Agregar Fecha</h2>
+                <form id="form-fecha">
+                    <label for="titulo">Título del evento:</label>
+                    <input type="text" id="titulo" placeholder="Ej. Examen Final" required>
 
-                <label for="fecha">Fecha:</label>
-                <input type="date" id="fecha" required>
+                    <label for="fecha">Fecha:</label>
+                    <input type="date" id="fecha" required>
 
-                <label for="descripcion">Descripción:</label>
-                <textarea id="descripcion" placeholder="Detalles del evento"></textarea>
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" placeholder="Detalles del evento"></textarea>
 
-                <button type="submit" class="btn agregar">Agregar</button>
-            </form>
-        </section>
-    </main>
+                    <button type="submit" class="btn agregar">Agregar</button>
+                </form>
+            </section>
+        </main>
 
-    <footer>
-        <p>&copy; 2024 Universidad XYZ - Todos los derechos reservados</p>
-    </footer>
-
+        <footer>
+            <p>&copy; 2024 Universidad Tecnologica Privada de Santa Cruz - Todos los derechos reservados</p>
+        </footer>
+    </div>
     <script src="{{ asset('js/calendario.js') }}"></script>
 
 </body>

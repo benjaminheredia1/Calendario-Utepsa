@@ -19,5 +19,5 @@ Route::get('/', [App::class, 'login'])->name("login");
 Route::post('/autenticar', [App::class, 'loguear'])->name('autenticar');
 Route::get("/registrar", [App::class, "register"])->name("crear");
 Route::post("/crearUsuario", [App::class, "crear_usuario"])->name("anadir");
-Route::get('/fecha', [aplicacion::class, 'fechas'])->name('agregar_fechas')->middleware('autenticado');    
+Route::get('/calendario', [dashboard::class, 'calendario'])->name('calendar');
 Route::get('/home', [dashboard::class, 'index'])->name('Inicio_calendario');
