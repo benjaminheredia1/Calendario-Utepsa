@@ -43,6 +43,7 @@ function marcarCada20Dias(calendario, fechaInicial, color, cantidadDias, sabados
         let objeto = document.querySelector(`[data-date='${dateStr}']`);
         let conector = objeto.getElementsByTagName('a')[0];
         conector.style.color = 'white';
+        //cambiar el color de los elementos a blanco
         if (objeto) {
             objeto.style.background = color;
             // Marcar el color rojo
