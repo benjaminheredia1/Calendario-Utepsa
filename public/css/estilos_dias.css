@@ -1,0 +1,100 @@
+/* Cambia el tamaño de las celdas del calendario */
+
+.fc-daygrid-day-frame {
+    height: 30px;
+    /* Ajusta la altura de las celdas */
+    width: 40px;
+    /* Ajusta el ancho de las celdas */
+}
+
+.fc-daygrid-day-top {
+    font-size: 14px;
+    /* Ajusta el tamaño de la fuente del número del día */
+}
+
+.fc td {
+    padding: 0;
+    /* Elimina el padding interno si lo prefieres más ajustado */
+    border: 1px solid #ddd;
+    /* Ajusta el estilo del borde de las celdas si es necesario */
+}
+
+td {
+    border: none !important;
+}
+
+.fc-daygrid-day-number {
+    color: black;
+    font-size: 20px;
+    font-weight: lighter;
+    text-align: right !important;
+}
+
+table {
+    overflow: hidden !important;
+}
+
+.fc-toolbar-title {
+    font-family: "Archivo Black" !important;
+    font-weight: 900 !important;
+}
+
+.fc-col-header-cell {
+    background-color: black;
+    color: white;
+}
+
+#calendar {
+    background-color: red;
+}
+
+
+/* Estilo para las celdas de los domingos */
+
+.fc-day-sun {
+    background-color: #ffffff;
+    /* Cambia el fondo */
+    border-radius: 5px;
+    /* Redondea los bordes */
+}
+
+
+/* Estilo para los números de los días (dentro de los domingos) */
+
+.fc-day-sun .fc-daygrid-day-number {
+    color: #7a7a7a !important;
+    /* Cambia el color del número */
+    font-weight: bold;
+    /* Hace que el número sea más grueso */
+}
+
+[aria-label="domingo"] {
+    color: white;
+    background-color: gray;
+}
+
+fc-scrollgrid-sync-inner {
+    background-color: gray !important;
+}
+
+.calendario-mes {
+    background-color: 'white';
+}
+
+.modalidades_dias {
+    display: flex;
+    align-items: center;
+    /* Alineación vertical al centro */
+    justify-content: space-between;
+    /* Alineación horizontal al centro */
+}
+
+.clase-padre {
+    display: flex;
+    justify-content: center;
+}
+
+.fc-day-sun {
+    background-color: gray;
+    border-radius: unset;
+}

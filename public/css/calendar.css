@@ -1,334 +1,353 @@
-    /* Hacer que el contenedor principal ocupe toda la altura de la pantalla */
-    
-    html,
-    body {
-        height: 100%;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
+/* Hacer que el contenedor principal ocupe toda la altura de la pantalla */
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.82);
+    /* Rojo claro */
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    flex: 1;
+    /* El contenido principal ocupa todo el espacio restante */
+    padding: 2rem;
+}
+
+#calendario-container {
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.calendario-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: unset;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Secciones adicionales */
+
+section {
+    margin-bottom: 2rem;
+}
+
+#control-panel {
+    text-align: center;
+}
+
+.btn {
+    background-color: unset;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    margin: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background-color: rgba(0, 0, 0, 9);
+}
+
+.delete {
+    background-color: #c62828;
+    /* Rojo oscuro para botones de eliminar */
+}
+
+.delete:hover {
+    background-color: #b71c1c;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+    width: 100%;
+    position: relative;
+}
+
+
+/*  lo nuevoo*/
+
+.calendarios-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* Permite que los calendarios se envuelvan en filas */
+    justify-content: center;
+    /* Centra los calendarios en la página */
+    margin: 20px;
+    width: 90%;
+    /* Ajusta el ancho del contenedor */
+    max-width: 1500px;
+    /* Limita el ancho máximo */
+    gap: 20px;
+    /* Espacio entre los calendarios */
+}
+
+.calendario-mes {
+    flex: 1 1 300px;
+    /* Permite que el calendario crezca y se reduzca, con un tamaño base de 300px */
+    max-width: 300px;
+    /* Limita el ancho máximo de cada calendario */
+    height: 350px;
+    /* Altura adecuada */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sombras suaves */
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.calendario-mes:hover {
+    transform: scale(1.05);
+    /* Animación al pasar el cursor */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.fc-toolbar-title {
+    font-size: 16px;
+    /* Tamaño del título del mes más legible */
+    /* Color del título del mes */
+}
+
+.fc-daygrid-day-number {
+    font-size: 12px;
+    /* Tamaño de los números de los días adecuado */
+    color: #007BFF;
+    /* Color de los números de los días */
+}
+
+.fc-button {
+    background-color: #007BFF;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    /* Tamaño adecuado de los botones */
+    font-size: 14px;
+    /* Tamaño de letra más grande */
+    border-radius: 5px;
+}
+
+.fc-button:hover {
+    background-color: #0056b3;
+    /* Color del botón al pasar el cursor */
+}
+
+#calendar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.modal {
+    position: fixed;
+    z-index: 1000;
+}
+
+
+/* Estilo general del contenedor del modal */
+
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Fondo oscuro con opacidad */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    /* Asegura que esté por encima de otros elementos */
+}
+
+
+/* Estilo de la ventana modal */
+
+.modal {
+    background: linear-gradient(145deg, #f28b82, #ff9f00);
+    /* Gradiente elegante */
+    color: #fff;
+    /* Color del texto */
+    padding: 30px 20px;
+    /* Espaciado interior */
+    border-radius: 12px;
+    /* Bordes redondeados */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    /* Sombra suave */
+    width: 400px;
+    /* Ancho del modal */
+    text-align: center;
+    /* Centra el texto */
+    transition: transform 0.3s ease;
+    /* Transición para efecto de entrada */
+    border: 4px solid transparent;
+    /* Sin borde inicial */
+    animation: border-animation 1.5s infinite;
+    /* Iniciar la animación del borde */
+}
+
+
+/* Estilo del título */
+
+.modal-title {
+    margin-bottom: 20px;
+    /* Espaciado inferior */
+    font-size: 1.8rem;
+    /* Tamaño de fuente más grande */
+    font-family: 'Arial', sans-serif;
+    /* Fuente elegante */
+    font-weight: bold;
+    /* Negrita para mayor énfasis */
+}
+
+
+/* Estilo del input */
+
+.modal-input {
+    width: calc(100% - 24px);
+    /* Ajuste del ancho completo */
+    padding: 12px;
+    /* Espaciado interior */
+    margin-bottom: 20px;
+    /* Espaciado inferior */
+    border-radius: 6px;
+    /* Bordes redondeados */
+    font-size: 1rem;
+    /* Tamaño de fuente */
+    outline: none;
+    /* Sin contorno */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Fondo ligeramente transparente */
+    transition: background-color 0.3s;
+    /* Transiciones suaves */
+}
+
+
+/* Borde animado del contenedor */
+
+@keyframes border-animation {
+    0% {
+        border-color: #ff6f00;
+        /* Color inicial del borde */
+        transform: scale(1);
+        /* Tamaño normal */
     }
-    
-    header {
-        background-color: #f28b82;
-        /* Rojo claro */
-        color: #fff;
-        text-align: center;
-        padding: 1rem;
-    }
-    
-    nav ul {
-        list-style: none;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-    }
-    
-    nav ul li {
-        margin: 0 1rem;
-    }
-    
-    nav ul li a {
-        color: #fff;
-        text-decoration: none;
-        font-weight: bold;
-    }
-    
-    main {
-        flex: 1;
-        /* El contenido principal ocupa todo el espacio restante */
-        padding: 2rem;
-    }
-    
-    #calendario-container {
-        margin-bottom: 2rem;
-        width: 100%;
-    }
-    
-    .calendario-grid {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 2rem;
-        background-color: #fff;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    /* Secciones adicionales */
-    
-    section {
-        margin-bottom: 2rem;
-    }
-    
-    #control-panel {
-        text-align: center;
-    }
-    
-    .btn {
-        background-color: #f28b82;
-        color: #fff;
-        border: none;
-        padding: 0.75rem 1.5rem;
-        margin: 0.5rem;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 1rem;
-    }
-    
-    .btn:hover {
-        background-color: #e57373;
-    }
-    
-    .delete {
-        background-color: #c62828;
-        /* Rojo oscuro para botones de eliminar */
-    }
-    
-    .delete:hover {
-        background-color: #b71c1c;
-    }
-    
-    footer {
-        text-align: center;
-        padding: 1rem;
-        background-color: #333;
-        color: #fff;
-        width: 100%;
-        position: relative;
-    }
-    /*  lo nuevoo*/
-    
-    .calendarios-container {
-        display: flex;
-        flex-wrap: wrap;
-        /* Permite que los calendarios se envuelvan en filas */
-        justify-content: center;
-        /* Centra los calendarios en la página */
-        margin: 20px;
-        width: 90%;
-        /* Ajusta el ancho del contenedor */
-        max-width: 1500px;
-        /* Limita el ancho máximo */
-        gap: 20px;
-        /* Espacio entre los calendarios */
-    }
-    
-    .calendario-mes {
-        flex: 1 1 300px;
-        /* Permite que el calendario crezca y se reduzca, con un tamaño base de 300px */
-        max-width: 300px;
-        /* Limita el ancho máximo de cada calendario */
-        height: 350px;
-        /* Altura adecuada */
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        /* Sombras suaves */
-        overflow: hidden;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    
-    .calendario-mes:hover {
+    50% {
+        border-color: #ff9f00;
+        /* Color intermedio del borde */
         transform: scale(1.05);
-        /* Animación al pasar el cursor */
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        /* Aumentar tamaño */
     }
-    
-    .fc-toolbar-title {
-        font-size: 16px;
-        /* Tamaño del título del mes más legible */
-        color: #333;
-        /* Color del título del mes */
+    100% {
+        border-color: #ff6f00;
+        /* Regresa al color inicial */
+        transform: scale(1);
+        /* Tamaño normal */
     }
-    
-    .fc-daygrid-day-number {
-        font-size: 12px;
-        /* Tamaño de los números de los días adecuado */
-        color: #007BFF;
-        /* Color de los números de los días */
-    }
-    
-    .fc-button {
-        background-color: #007BFF;
-        border: none;
-        color: white;
-        padding: 5px 10px;
-        /* Tamaño adecuado de los botones */
-        font-size: 14px;
-        /* Tamaño de letra más grande */
-        border-radius: 5px;
-    }
-    
-    .fc-button:hover {
-        background-color: #0056b3;
-        /* Color del botón al pasar el cursor */
-    }
-    
-    #calendar {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        flex-wrap: wrap;
-    }
-    
-    .modal {
-        position: fixed;
-        z-index: 1000;
-    }
-    /* Estilo general del contenedor del modal */
-    
-    .modal-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.8);
-        /* Fondo oscuro con opacidad */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-        /* Asegura que esté por encima de otros elementos */
-    }
-    /* Estilo de la ventana modal */
-    
-    .modal {
-        background: linear-gradient(145deg, #f28b82, #ff9f00);
-        /* Gradiente elegante */
-        color: #fff;
-        /* Color del texto */
-        padding: 30px 20px;
-        /* Espaciado interior */
-        border-radius: 12px;
-        /* Bordes redondeados */
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        /* Sombra suave */
-        width: 400px;
-        /* Ancho del modal */
-        text-align: center;
-        /* Centra el texto */
-        transition: transform 0.3s ease;
-        /* Transición para efecto de entrada */
-        border: 4px solid transparent;
-        /* Sin borde inicial */
-        animation: border-animation 1.5s infinite;
-        /* Iniciar la animación del borde */
-    }
-    /* Estilo del título */
-    
-    .modal-title {
-        margin-bottom: 20px;
-        /* Espaciado inferior */
-        font-size: 1.8rem;
-        /* Tamaño de fuente más grande */
-        font-family: 'Arial', sans-serif;
-        /* Fuente elegante */
-        font-weight: bold;
-        /* Negrita para mayor énfasis */
-    }
-    /* Estilo del input */
-    
-    .modal-input {
-        width: calc(100% - 24px);
-        /* Ajuste del ancho completo */
-        padding: 12px;
-        /* Espaciado interior */
-        margin-bottom: 20px;
-        /* Espaciado inferior */
-        border-radius: 6px;
-        /* Bordes redondeados */
-        font-size: 1rem;
-        /* Tamaño de fuente */
-        outline: none;
-        /* Sin contorno */
-        background-color: rgba(255, 255, 255, 0.1);
-        /* Fondo ligeramente transparente */
-        transition: background-color 0.3s;
-        /* Transiciones suaves */
-    }
-    /* Borde animado del contenedor */
-    
-    @keyframes border-animation {
-        0% {
-            border-color: #ff6f00;
-            /* Color inicial del borde */
-            transform: scale(1);
-            /* Tamaño normal */
-        }
-        50% {
-            border-color: #ff9f00;
-            /* Color intermedio del borde */
-            transform: scale(1.05);
-            /* Aumentar tamaño */
-        }
-        100% {
-            border-color: #ff6f00;
-            /* Regresa al color inicial */
-            transform: scale(1);
-            /* Tamaño normal */
-        }
-    }
-    /* Estilo del botón */
-    
-    .modal-btn {
-        background-color: #ffffff;
-        /* Color blanco */
-        color: #ff6f00;
-        /* Color del texto del botón */
-        border: none;
-        /* Sin borde */
-        padding: 12px 18px;
-        /* Espaciado interior */
-        border-radius: 6px;
-        /* Bordes redondeados */
-        cursor: pointer;
-        /* Cambia el cursor al pasar por encima */
-        font-size: 1rem;
-        /* Tamaño de fuente */
-        font-weight: bold;
-        /* Negrita para destacar */
-        transition: background-color 0.3s, transform 0.2s;
-        /* Efecto de transición */
-    }
-    /* Efecto hover del botón */
-    
-    .modal-btn:hover {
-        background-color: #ff9f00;
-        /* Cambia el color al pasar el mouse */
-        color: #fff;
-        /* Color del texto al pasar el mouse */
-        transform: scale(1.05);
-        /* Efecto de zoom al pasar el mouse */
-    }
-    /* Efecto de zoom al mostrar el modal */
-    
-    .modal-container.show .modal {
-        transform: scale(1.05);
-        /* Efecto de zoom al mostrar */
-    }
-    
-    .modal-input {
-        border: none;
-        color: white;
-    }
-    
-    .exit-jpg-modal-eventos {
-        width: 40px;
-        position: relative;
-        text-align: right;
-        bottom: 20px;
-        right: 10px;
-    }
-    
-    .div-exit-jpg-modal-eventos {
-        display: flex;
-        justify-content: flex-start;
-        height: 100%;
-    }
-    
-    .exit-jpg-modal-eventos:hover {
-        width: 45px;
-    }
-    
-    .modal-container {
-        display: none;
-    }
+}
+
+
+/* Estilo del botón */
+
+.modal-btn {
+    background-color: #ffffff;
+    /* Color blanco */
+    color: #ff6f00;
+    /* Color del texto del botón */
+    border: none;
+    /* Sin borde */
+    padding: 12px 18px;
+    /* Espaciado interior */
+    border-radius: 6px;
+    /* Bordes redondeados */
+    cursor: pointer;
+    /* Cambia el cursor al pasar por encima */
+    font-size: 1rem;
+    /* Tamaño de fuente */
+    font-weight: bold;
+    /* Negrita para destacar */
+    transition: background-color 0.3s, transform 0.2s;
+    /* Efecto de transición */
+}
+
+
+/* Efecto hover del botón */
+
+.modal-btn:hover {
+    background-color: #ff9f00;
+    /* Cambia el color al pasar el mouse */
+    color: #fff;
+    /* Color del texto al pasar el mouse */
+    transform: scale(1.05);
+    /* Efecto de zoom al pasar el mouse */
+}
+
+
+/* Efecto de zoom al mostrar el modal */
+
+.modal-container.show .modal {
+    transform: scale(1.05);
+    /* Efecto de zoom al mostrar */
+}
+
+.modal-input {
+    border: none;
+    color: white;
+}
+
+.exit-jpg-modal-eventos {
+    width: 40px;
+    position: relative;
+    text-align: right;
+    bottom: 20px;
+    right: 10px;
+}
+
+.div-exit-jpg-modal-eventos {
+    display: flex;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+.exit-jpg-modal-eventos:hover {
+    width: 45px;
+}
+
+.modal-container {
+    display: none;
+}

@@ -7,21 +7,56 @@
     <title>Calendario Universitario</title>
     <link rel="stylesheet" href="{{ asset('css/calendar.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css" rel="stylesheet">
+    <link rel='stylesheet' href="{{ asset('css/estilos_dias.css') }}" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
     <script src="{{ asset('js/funcionalidad_calendario.js') }}"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-
     <header>
-        <h1>Calendario Universitario</h1>
-        <nav>
-            <ul>
-                <li><a href="#agregar-festivo">Agregar Fecha Festiva</a></li>
-                <li><a href="#fechas-importantes">Fechas Importantes</a></li>
-                <li><a class="eventos-modal-li-a" href="#buscar-eventos">Buscar Eventos</a></li>
-            </ul>
-        </nav>
+        <section id="control-panel">
+            <div class="clase-padre">
+                <div class="modalidades_dias">
+                    <button class="btn" id="btn-presencial"> <svg width="20" height="20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <rect width="15" height="15" x="4" y="4"
+                                style="fill:rgb(255,0,0);stroke:white; stroke-width: 1;" />
+                        </svg> Inicio Módulo Presencial</button>
+                    <button class="btn" id="btn-semi-presencial">
+                        <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="15" height="15" x="4" y="4"
+                                style="fill:rgb(255, 145, 0);stroke:white; stroke-width: 1;" />
+                        </svg>
+                        Inicio Módulo Semipresencial Lunes-Miercoles</button>
+                    <button class="btn" id="btn-semi-presencial-mier-vier">
+                        <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="15" height="15" x="4" y="4"
+                                style="fill:rgb(105, 44, 146);stroke:white; stroke-width: 1;" />
+                        </svg>
+                        Inicio Módulo Semipresencial
+                        Martes y jueves</button>
+                    <button class="btn" id="btn-sabado">
+                        <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="15" height="15" x="4" y="4"
+                                style="fill:rgb(0, 132, 255);stroke:white; stroke-width: 1;" />
+                        </svg>
+                        Sábados</button>
+                </div>
+
+
+
+            </div>
+            <button class="btn delete" id="btn-agregar-festivo">Agregar Fecha Festiva</button>
+            <button class="btn delete" id="btn-eliminar-festivo">Eliminar Fechas Festivas</button>
+            <button class="btn delete" id="btn-borrar">Borrar Calendario</button>
+        </section>
     </header>
 
     <main>
@@ -48,16 +83,7 @@
         </section>
 
         <!-- Botones para manejar el calendario -->
-        <section id="control-panel">
-            <button class="btn" id="btn-presencial">Inicio Módulo Presencial</button>
-            <button class="btn" id="btn-semi-presencial">Inicio Módulo Semipresencial Lunes-Martes</button>
-            <button class="btn" id="btn-semi-presencial-mier-vier">Inicio Módulo Semipresencial
-                Miércoles-Viernes</button>
-            <button class="btn" id="btn-sabado">Sábados</button>
-            <button class="btn" id="btn-agregar-festivo">Agregar Fecha Festiva</button>
-            <button class="btn delete" id="btn-eliminar-festivo">Eliminar Fechas Festivas</button>
-            <button class="btn delete" id="btn-borrar">Borrar Calendario</button>
-        </section>
+
 
         <!-- Fechas importantes -->
         <section id="fechas-importantes">
@@ -66,19 +92,10 @@
                 <!-- Fechas importantes generadas dinámicamente -->
             </ul>
         </section>
-
-
-        <!-- Próximos eventos -->
-        <section id="proximos-eventos">
-            <h2>Próximos Eventos</h2>
-            <ul id="lista-proximos-eventos">
-                <!-- Lista de próximos eventos generada dinámicamente -->
-            </ul>
-        </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Universidad XYZ - Todos los derechos reservados</p>
+        <p>&copy; 2024 Universidad Utepsas - Todos los derechos reservados</p>
     </footer>
 
     <!-- Script para manejar el calendario y los botones -->

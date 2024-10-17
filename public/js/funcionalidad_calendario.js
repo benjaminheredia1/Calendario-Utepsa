@@ -4,8 +4,4 @@ document.addEventListener('DOMContentLoaded', function() {
     cerrar_modal.addEventListener('click', function() {
         contenedor.style.display = 'none';
     })
-    let abrir_modal = document.getElementsByClassName('eventos-modal-li-a')[0];
-    abrir_modal.addEventListener('click', function() {
-        contenedor.style.display = 'flex';
-    });
 });
